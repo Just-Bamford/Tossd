@@ -1,0 +1,61 @@
+@import "../tokens/tossd.tokens.css";
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  background: rgba(23, 23, 23, 0.55);
+  opacity: 0;
+  transition: opacity var(--motion-base) var(--ease-standard);
+}
+
+.backdropOpen {
+  opacity: 1;
+}
+
+.panel {
+  position: relative;
+  width: 100%;
+  max-width: min(480px, 100%);
+  max-height: min(90dvh, 100%);
+  overflow: auto;
+  margin: auto;
+  background: var(--color-bg-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  outline: none;
+  transform: scale(0.96);
+  opacity: 0;
+  transition:
+    opacity var(--motion-base) var(--ease-standard),
+    transform var(--motion-base) var(--ease-standard);
+}
+
+.backdropOpen .panel {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.panel:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backdrop,
+  .panel {
+    transition-duration: 0.01ms;
+  }
+
+  .panel {
+    transform: none;
+  }
+
+  .backdropOpen .panel {
+    transform: none;
+  }
+}
