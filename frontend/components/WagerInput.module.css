@@ -1,0 +1,95 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-fg-primary);
+}
+
+/* Input row: text field + XLM suffix */
+.inputRow {
+  display: flex;
+  align-items: center;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  transition: border-color var(--motion-fast) var(--ease-standard),
+    box-shadow var(--motion-fast) var(--ease-standard);
+  overflow: hidden;
+}
+
+.inputRow:focus-within {
+  border-color: var(--color-brand-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand-accent) 20%, transparent);
+}
+
+.inputRowError {
+  border-color: var(--color-state-danger);
+}
+
+.inputRowError:focus-within {
+  border-color: var(--color-state-danger);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-state-danger) 20%, transparent);
+}
+
+.inputRowDisabled {
+  background: var(--color-bg-subtle);
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-body);
+  color: var(--color-fg-primary);
+  padding: var(--space-3) var(--space-4);
+  min-width: 0;
+  min-height: 44px;
+}
+
+.input::placeholder {
+  color: var(--color-fg-muted);
+}
+
+.input:disabled {
+  cursor: not-allowed;
+}
+
+.suffix {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-fg-muted);
+  padding: 0 var(--space-4) 0 var(--space-2);
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Error message */
+.error {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  color: var(--color-state-danger);
+  margin: 0;
+}
+
+/* Hint / limits text */
+.hint {
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+  margin: 0;
+}

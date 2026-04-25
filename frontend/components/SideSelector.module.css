@@ -1,0 +1,102 @@
+@import "../tokens/tossd.tokens.css";
+
+.group {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-pill);
+  padding: 4px;
+  gap: 0;
+  min-width: 220px;
+  user-select: none;
+}
+
+/* Sliding active indicator */
+.indicator {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(50% - 4px);
+  height: calc(100% - 8px);
+  background: var(--color-brand-ink);
+  border-radius: var(--radius-pill);
+  transition: transform var(--motion-base) var(--ease-standard);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .indicator {
+    transition: none;
+  }
+}
+
+/* Each option */
+.option {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: color var(--motion-fast) var(--ease-standard);
+}
+
+.option:not(.selected) {
+  color: var(--color-fg-secondary);
+}
+
+.option.selected {
+  color: var(--color-bg-surface);
+}
+
+.option.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Focus ring on the hidden radio */
+.hiddenInput {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.hiddenInput:focus-visible + .symbol {
+  /* Bubble focus ring up to the label */
+  outline: none;
+}
+
+.option:has(.hiddenInput:focus-visible) {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.symbol {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  flex-shrink: 0;
+  transition: border-color var(--motion-fast) var(--ease-standard);
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+}

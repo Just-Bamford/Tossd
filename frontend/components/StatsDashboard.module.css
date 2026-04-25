@@ -1,0 +1,169 @@
+/* ── Section ────────────────────────────────────────────────────────────── */
+.section {
+  padding: var(--space-8) var(--space-6);
+  background: var(--color-bg-base);
+}
+
+/* ── Header row ─────────────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: var(--font-size-h2);
+  font-weight: 700;
+  color: var(--color-fg-primary);
+  margin: 0;
+  line-height: var(--line-height-tight);
+  flex: 1;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-shrink: 0;
+}
+
+.timestamp {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+}
+
+.errorBadge {
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  color: var(--color-state-danger);
+  background: color-mix(in srgb, var(--color-state-danger) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-state-danger) 25%, transparent);
+  border-radius: var(--radius-pill);
+  padding: 2px var(--space-2);
+}
+
+.refreshBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg-surface);
+  color: var(--color-fg-muted);
+  cursor: pointer;
+  transition: color var(--motion-fast), background var(--motion-fast);
+}
+
+.refreshBtn:hover {
+  color: var(--color-fg-primary);
+  background: var(--color-bg-subtle);
+}
+
+.refreshBtn:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 1px;
+}
+
+/* ── Stat grid ──────────────────────────────────────────────────────────── */
+.grid,
+.loadingGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ── Stat card ──────────────────────────────────────────────────────────── */
+.card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-fg-muted);
+  margin: 0;
+}
+
+.valueRow {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-1);
+  margin: 0;
+}
+
+.value {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-h3);
+  font-weight: 600;
+  color: var(--color-fg-primary);
+  line-height: var(--line-height-tight);
+}
+
+.unit {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-muted);
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+  margin: 0;
+  line-height: var(--line-height-normal);
+}
+
+/* ── Loading skeleton ───────────────────────────────────────────────────── */
+@keyframes shimmer {
+  from { background-position: -200% 0; }
+  to   { background-position:  200% 0; }
+}
+
+.skeleton {
+  height: 110px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    90deg,
+    var(--color-bg-subtle) 25%,
+    var(--color-bg-surface) 50%,
+    var(--color-bg-subtle) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton { animation: none; background: var(--color-bg-subtle); }
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid,
+  .loadingGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .section { padding: var(--space-6) var(--space-4); }
+  .grid,
+  .loadingGrid { grid-template-columns: 1fr; }
+}

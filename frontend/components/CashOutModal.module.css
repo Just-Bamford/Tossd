@@ -1,0 +1,181 @@
+@import "../tokens/tossd.tokens.css";
+
+.root {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-h3);
+  font-weight: 700;
+  color: var(--color-fg-primary);
+  margin: 0;
+  line-height: var(--line-height-tight);
+}
+
+.closeBtn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: var(--color-fg-muted);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--motion-fast) var(--ease-standard);
+}
+
+.closeBtn:hover {
+  background: var(--color-bg-subtle);
+}
+
+.closeBtn:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.streakBadge {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: var(--space-1) var(--space-3);
+  background: var(--color-brand-accent-soft);
+  color: var(--color-brand-accent);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  margin: 0;
+}
+
+.comparison {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.option {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  background: var(--color-bg-subtle);
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--color-border-default);
+}
+
+.optionRisk {
+  border-color: var(--color-state-warning);
+  background: #FEF6EC;
+}
+
+.optionLabel {
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-fg-muted);
+}
+
+.multiplier {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-h3);
+  font-weight: 600;
+  color: var(--color-fg-primary);
+}
+
+.payout {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-state-success);
+}
+
+.optionNote {
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+  margin-top: var(--space-1);
+}
+
+.riskNote {
+  color: var(--color-state-warning);
+  font-weight: 500;
+}
+
+.divider {
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--color-fg-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.btnCashOut {
+  width: 100%;
+  padding: var(--space-4);
+  background: var(--color-brand-ink);
+  color: var(--color-bg-surface);
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  min-height: 44px;
+  transition: opacity var(--motion-fast) var(--ease-standard);
+}
+
+.btnCashOut:hover {
+  opacity: 0.85;
+}
+
+.btnCashOut:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.btnContinue {
+  width: 100%;
+  padding: var(--space-4);
+  background: transparent;
+  color: var(--color-state-warning);
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  border: 1.5px solid var(--color-state-warning);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  min-height: 44px;
+  transition: background var(--motion-fast) var(--ease-standard);
+}
+
+.btnContinue:hover {
+  background: #FEF6EC;
+}
+
+.btnContinue:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}

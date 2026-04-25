@@ -1,0 +1,208 @@
+@import "../tokens/tossd.tokens.css";
+
+.container {
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-family: var(--font-body);
+  font-size: var(--font-size-h3);
+  font-weight: 600;
+  color: var(--color-fg-primary);
+  margin: 0;
+}
+
+.closeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-body);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--motion-fast) var(--ease-standard);
+}
+
+.closeBtn:hover {
+  background: var(--color-bg-subtle);
+}
+
+.closeBtn:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--color-fg-secondary);
+  margin: 0;
+}
+
+.errorBanner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: color-mix(in srgb, var(--color-state-danger) 10%, white);
+  color: var(--color-state-danger);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-body);
+}
+
+.errorIcon {
+  flex-shrink: 0;
+}
+
+.walletList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.walletBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color var(--motion-fast) var(--ease-standard),
+    background var(--motion-fast) var(--ease-standard);
+  min-height: 64px;
+}
+
+.walletBtn:hover:not(:disabled) {
+  border-color: var(--color-brand-accent);
+  background: var(--color-brand-accent-soft);
+}
+
+.walletBtn:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.walletBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.walletInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.walletName {
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  color: var(--color-fg-primary);
+}
+
+.walletDesc {
+  font-family: var(--font-body);
+  font-size: var(--font-size-xs);
+  color: var(--color-fg-muted);
+}
+
+.arrow {
+  color: var(--color-fg-muted);
+  font-size: var(--font-size-body);
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--color-border-default);
+  border-top-color: var(--color-brand-accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+    border-top-color: var(--color-brand-accent);
+  }
+}
+
+/* Connected state */
+.connectedState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+  text-align: center;
+}
+
+.connectedBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--color-state-success) 10%, white);
+  color: var(--color-state-success);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  font-family: var(--font-body);
+}
+
+.address {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-mono);
+  color: var(--color-fg-secondary);
+  word-break: break-all;
+  margin: 0;
+}
+
+.disconnectBtn {
+  min-height: 44px;
+  padding: 0 var(--space-8);
+  background: var(--interactive-primary-bg);
+  color: var(--interactive-primary-fg);
+  border: none;
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity var(--motion-fast) var(--ease-standard);
+}
+
+.disconnectBtn:hover {
+  opacity: 0.85;
+}
+
+.disconnectBtn:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}

@@ -1,0 +1,38 @@
+/* ── Grid container ─────────────────────────────────────────────────────── */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols, 12), 1fr);
+  width: 100%;
+}
+
+/* ── Gap variants (spacing tokens) ─────────────────────────────────────── */
+.gap-none { gap: 0; }
+.gap-sm   { gap: var(--space-2, 8px); }
+.gap-md   { gap: var(--space-4, 16px); }
+.gap-lg   { gap: var(--space-6, 24px); }
+
+/* ── Grid item ──────────────────────────────────────────────────────────── */
+.item {
+  grid-column: span var(--item-span, 1);
+  min-width: 0; /* prevent blowout in nested grids */
+}
+
+/* ── Tablet (481 – 900 px) ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(var(--grid-cols-md, 6), 1fr);
+  }
+  .item {
+    grid-column: span var(--item-span-md, var(--item-span, 1));
+  }
+}
+
+/* ── Mobile (≤ 480 px) ──────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(var(--grid-cols-sm, 4), 1fr);
+  }
+  .item {
+    grid-column: span var(--item-span-sm, var(--grid-cols-sm, 4));
+  }
+}

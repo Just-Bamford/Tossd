@@ -1,0 +1,50 @@
+@import "../tokens/tossd.tokens.css";
+
+/* Backdrop */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 49;
+  background: rgba(23, 23, 23, 0.5);
+  opacity: 0;
+  transition: opacity var(--motion-base) var(--ease-standard);
+}
+
+.backdropOpen {
+  opacity: 1;
+}
+
+/* Slide-in panel from the right */
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  width: min(320px, 85vw);
+  background: var(--color-bg-surface);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-8) var(--space-6);
+  overflow-y: auto;
+  outline: none;
+  transform: translateX(100%);
+  transition: transform var(--motion-base) var(--ease-standard);
+}
+
+.menuOpen {
+  transform: translateX(0);
+}
+
+/* Focus ring on the panel itself */
+.menu:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: -2px;
+}
+
+/* Reduced motion: instant show/hide */
+@media (prefers-reduced-motion: reduce) {
+  .backdrop,
+  .menu {
+    transition-duration: 0.01ms;
+  }
+}
